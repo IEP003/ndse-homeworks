@@ -28,28 +28,42 @@ const selector = (action) => {
     if(action === undefined) {
         console.log('обычная дата')
         parseTime(argv, 0)
-    } else if (action === 'add') {
+        return
+    } 
+
+    if (action === 'add') {
         console.log('Дата в перед')
         parseTime(argv, argNumber)
-    } else if (action === 'sub') {
+        return
+    } 
+
+    if (action === 'sub') {
         console.log('Дата назад')
         const subArgNumber = - argNumber
         parseTime(argv, subArgNumber)
-    } else {
-        console.error('неправильные аргументы')
-    }
+        return
+    } 
+    console.error('неправильные аргументы')
+    
 }
 
 const parseTime = (obj, num) => {
     if (obj.y){
         console.log(date.getFullYear() + num)
-    } else if (obj.m){
+        return
+    }
+    
+    if (obj.m){
         console.log(date.getMonth() + 1 + num)
-    } else if (obj.d){
-        console.log(date.getDate() + num)
-    } else {
-        console.log(date)
+        return
     } 
+    
+    if (obj.d){
+        console.log(date.getDate() + num)
+        return
+    } 
+
+    console.log(date)
 }
 
 return selector(action)
