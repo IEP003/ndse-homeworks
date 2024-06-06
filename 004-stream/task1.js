@@ -18,17 +18,9 @@ const randomaizer = (min, max) => {
 };
 
 const writeLog = (logFile, result) => {
-    if (logFile) {
-        fs.appendFile(logFile, result, (err) => {
-            if (err) throw Error(err);
-        })
-    } 
-    
-    if (!logFile) {
-        fs.writeFile(logFile, result, (err) => {
-            if (err) throw Error(err);
-        })
-    }
+    fs.appendFile(logFile, result, (err) => {
+        if (err) throw Error(err);
+    })
 }
 
 const hideNumber = randomaizer(1, 2);
