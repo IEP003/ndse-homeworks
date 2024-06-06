@@ -22,7 +22,9 @@ const writeLog = (logFile, result) => {
         fs.appendFile(logFile, result, (err) => {
             if (err) throw Error(err);
         })
-    } else if (!logFile) {
+    } 
+    
+    if (!logFile) {
         fs.writeFile(logFile, result, (err) => {
             if (err) throw Error(err);
         })
