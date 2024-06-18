@@ -9,7 +9,7 @@ const fileMulter = require('../middleware/file.js');
 
 router.get('/', (req, res) => {
     const { library } = Storage;
-    res.json(library);
+    res.json(library);    
 })
 
 router.get('/:id' , (req, res) => {
