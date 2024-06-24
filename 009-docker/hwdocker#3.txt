@@ -1,0 +1,19 @@
+docker run -d --name first_node -v ${pwd}/data:/var/first/data node:20.0.0 tail -f /dev/null
+123feaf2dc340ed92834a6de67c117d0c41390a342d4dbaa6f2acd369204677b
+
+PS C:\programm\node\ndse-homeworks> docker run -d --name second_node -v ${pwd}/data:/var/second/data node:20.0.0 tail -f /dev/null
+28850a7c22ec45566d2b9a5e75240a4ca7feb7b209134201792518cd32611f09
+
+root@123feaf2dc34:/# echo "Пример содержимого файла" > /var/first/data/example.txt 
+
+
+C:\programm\node\ndse-homeworks> docker exec -it second_node /bin/bash
+root@28850a7c22ec:/# ls /var/second/data
+example.txt  exapmle222.txt
+
+PS C:\programm\node\ndse-homeworks> docker stop first_node second_node
+first_node
+second_node
+PS C:\programm\node\ndse-homeworks> docker rm first_node second_node 
+first_node
+second_node

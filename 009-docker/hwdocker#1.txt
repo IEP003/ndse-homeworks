@@ -1,0 +1,93 @@
+Task #1
+
+docker run -it --name pinger busybox ping -c 7 netology.ru
+PING netology.ru (172.67.21.207): 56 data bytes
+64 bytes from 172.67.21.207: seq=0 ttl=63 time=75.543 ms
+64 bytes from 172.67.21.207: seq=1 ttl=63 time=76.606 ms
+64 bytes from 172.67.21.207: seq=2 ttl=63 time=76.032 ms
+64 bytes from 172.67.21.207: seq=3 ttl=63 time=76.272 ms
+64 bytes from 172.67.21.207: seq=4 ttl=63 time=98.294 ms
+64 bytes from 172.67.21.207: seq=5 ttl=63 time=85.355 ms
+64 bytes from 172.67.21.207: seq=6 ttl=63 time=101.858 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 75.543/84.280/101.858 ms
+
+docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+614bc79069dc   busybox   "ping -c 7 netology.…"   2 minutes ago   Exited (0) 2 minutes ago             pinger
+
+docker logs pinger 
+PING netology.ru (172.67.21.207): 56 data bytes
+64 bytes from 172.67.21.207: seq=0 ttl=63 time=75.543 ms
+64 bytes from 172.67.21.207: seq=1 ttl=63 time=76.606 ms
+64 bytes from 172.67.21.207: seq=2 ttl=63 time=76.032 ms
+64 bytes from 172.67.21.207: seq=3 ttl=63 time=76.272 ms
+64 bytes from 172.67.21.207: seq=4 ttl=63 time=98.294 ms
+64 bytes from 172.67.21.207: seq=5 ttl=63 time=85.355 ms
+64 bytes from 172.67.21.207: seq=6 ttl=63 time=101.858 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 75.543/84.280/101.858 ms
+
+docker start -i pinger 
+PING netology.ru (172.67.21.207): 56 data bytes
+64 bytes from 172.67.21.207: seq=0 ttl=63 time=84.397 ms
+64 bytes from 172.67.21.207: seq=1 ttl=63 time=76.171 ms
+64 bytes from 172.67.21.207: seq=2 ttl=63 time=75.850 ms
+64 bytes from 172.67.21.207: seq=3 ttl=63 time=76.696 ms
+64 bytes from 172.67.21.207: seq=4 ttl=63 time=76.810 ms
+64 bytes from 172.67.21.207: seq=5 ttl=63 time=76.621 ms
+64 bytes from 172.67.21.207: seq=6 ttl=63 time=78.394 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 75.850/77.848/84.397 ms
+
+docker ps -a                                 
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                      PORTS     NAMES
+614bc79069dc   busybox   "ping -c 7 netology.…"   8 minutes ago   Exited (0) 45 seconds ago             pinger
+
+
+docker logs pinger
+PING netology.ru (172.67.21.207): 56 data bytes
+64 bytes from 172.67.21.207: seq=0 ttl=63 time=75.543 ms
+64 bytes from 172.67.21.207: seq=1 ttl=63 time=76.606 ms
+64 bytes from 172.67.21.207: seq=2 ttl=63 time=76.032 ms
+64 bytes from 172.67.21.207: seq=3 ttl=63 time=76.272 ms
+64 bytes from 172.67.21.207: seq=4 ttl=63 time=98.294 ms
+64 bytes from 172.67.21.207: seq=5 ttl=63 time=85.355 ms
+64 bytes from 172.67.21.207: seq=6 ttl=63 time=101.858 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 75.543/84.280/101.858 ms
+PING netology.ru (172.67.21.207): 56 data bytes
+64 bytes from 172.67.21.207: seq=0 ttl=63 time=84.397 ms
+64 bytes from 172.67.21.207: seq=1 ttl=63 time=76.171 ms
+64 bytes from 172.67.21.207: seq=2 ttl=63 time=75.850 ms
+64 bytes from 172.67.21.207: seq=3 ttl=63 time=76.696 ms
+64 bytes from 172.67.21.207: seq=4 ttl=63 time=76.810 ms
+64 bytes from 172.67.21.207: seq=5 ttl=63 time=76.621 ms
+64 bytes from 172.67.21.207: seq=6 ttl=63 time=78.394 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 75.850/77.848/84.397 ms
+
+2*7 = 14
+
+PS C:\programm\node\ndse-homeworks> docker stop pinger  
+pinger
+PS C:\programm\node\ndse-homeworks> docker rm pinger 
+pinger
+PS C:\programm\node\ndse-homeworks> docker ps -a        
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+docker rmi busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
+Deleted: sha256:65ad0d468eb1c558bf7f4e64e790f586e9eda649ee9f130cd0e835b292bbc5ac
+Deleted: sha256:d51af96cf93e225825efd484ea457f867cb2b967f7415b9a3b7e65a2f803838a

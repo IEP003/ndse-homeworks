@@ -1,0 +1,22 @@
+docker run -it --name mynode -e NAME=Иван -e SURNAME=Иванов node:21.0.0    
+Welcome to Node.js v21.0.0.
+
+console.log(`Привет, ${process.env.NAME} ${process.env.SURNAME}!`);
+Привет, Иван Иванов!
+
+PS C:\programm\node\ndse-homeworks> docker stop mynode
+mynode
+PS C:\programm\node\ndse-homeworks> docker rm mynode
+mynode
+PS C:\programm\node\ndse-homeworks> docker rmi node:21.0.0
+Untagged: node:21.0.0
+Untagged: node@sha256:bf718fc580177cd927173c8617cf7f527a1b7f62c7de882ee17a42d065f4b70e
+Deleted: sha256:d7eb1d08009693a150db373a0c79e8eb98f7de258e607c7dd3757b7745d4fa7c
+Deleted: sha256:4b714c690dc4942af6179857844c0b895fed68312e355a0d711cb93e91f289f0
+Deleted: sha256:0ba9c0de22e1fe37cff1366e90c7bb04ada203d02e2a4245d8e0a347cefb5b08
+Deleted: sha256:09aba2a8bb52aef4dbf4acb04208982515685462f225253157ea8e926e20b11a
+Deleted: sha256:2fc10e23756a6ab59d01e7e285baedb8e335763843b92236c02e56962643272a
+Deleted: sha256:935293de76e6812c3015bb510a60e06d0ff0528c47f74ddcc4e6528ab8f80686
+Deleted: sha256:3a78d30473881be3a54a8b6a11de5da7ac2dd645c813dcb7331527a30e50a993
+Deleted: sha256:354f4b6949596277291588a6a2b924144fa72edbc21ff3c12e168187e233fd0d
+Deleted: sha256:2fa37f2ee66efbd308b9b91bce81c262f5e6ab6c3bf8056632afc60cc602785c
