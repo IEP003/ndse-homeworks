@@ -1,28 +1,42 @@
-# Домашнее задание к занятию «2.6. База данных и хранение данных»
+# MongoDB Запросы
 
-**Правила выполнения домашней работы:** 
-* выполняйте домашнее задание в отдельной ветке проекта на GitHub,
-* в поле для сдачи работы прикрепите ссылку на ваш проект в Git,
-* присылать на проверку можно каждую задачу по отдельности или все задачи вместе, 
-* во время проверки по частям ваша домашняя работа будет обозначаться статусом «На доработке»,
-* любые вопросы по решению задач задавайте в канале вашей группы.
+## Вставка данных
 
+Для вставки данных о двух книгах в коллекцию `books` используйте следующий запрос:
 
-#### Задание 1
-Чтобы в будущем вам было легче работать с **MongoDB**, изучите раздел 
-документации об использовании [**CRUD Operations**](https://docs.mongodb.com/manual/crud/).
+```js
+db.books.insertMany([
+  {
+    title: "The Great Gatsby",
+    description: "A novel written by American author F. Scott Fitzgerald.",
+    authors: "F. Scott Fitzgerald"
+  },
+  {
+    title: "To Kill a Mockingbird",
+    description: "A novel by Harper Lee published in 1960.",
+    authors: "Harper Lee"
+  }
+]);
+``` 
+## Поиск документов по полю title 
 
-#### Задание 2
-В файле **README.md** написать следующие запросы для **MongoDB**:
- - запрос(ы) для *вставки* данных минимум о двух книгах в коллекцию **books**,
- - запрос для *поиска* полей документов коллекции **books** по полю *title*,
- - запрос для *редактирования* полей: *description* и *authors* коллекции **books** по *_id* записи.
- 
-*Каждый документ коллекции **books** должен содержать следующую структуру данных: 
-```javascript
-{
-  title: "string",
-  description: "string",
-  authors: "string"
-}
+```js
+db.books.find(
+  { title: "The Great Gatsby" },
+  { _id: 0, title: 1, description: 1, authors: 1 }
+);
+``` 
+
+## Редактирование полей description и authors по _id
+
+```js
+db.books.updateOne(
+  { _id: ObjectId("YOUR_DOCUMENT_ID") },
+  {
+    $set: {
+      description: "Updated description",
+      authors: "Updated authors"
+    }
+  }
+);
 ``` 
